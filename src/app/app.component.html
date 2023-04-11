@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="formsubmit()">
+  <label>Name : </label><input type="text" formControlName="name" id="firstname" /> <br /><br />
+  <span *ngIf="form?.get('name')?.errors?.['required'] && form?.get('name')?.touched" >name is required</span>
+  <span *ngIf="form?.get('name')?.errors?.['minlength'] && form?.get('name')?.touched " >name should be minimum 4</span>
+  <span *ngIf="form?.get('name')?.errors?.['maxlength'] && form?.get('name')?.touched " >name should be max 8</span>
+  <br><br>
+  <label>Email : </label><input type="email"  formControlName="mail" /> <br /><br />
+  <span *ngIf="form?.get('mail')?.errors?.['required'] && [form?.get('mail')?.pending || form?.get('mail')?.pending ]" >Email is pending</span> 
+  <input type="checkbox" formControlName="box" /> <label>Accept terms & conditions</label><br><br>
+  <span *ngIf="form?.get('box')?.invalid && form.get('box')?.touched" >Email is pending</span> 
+  <button type="submit">submit</button>
+</form>
